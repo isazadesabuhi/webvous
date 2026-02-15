@@ -1,5 +1,8 @@
+import Link from "next/link";
+
 const navLinks = [
   { label: "Nos Services", href: "#services" },
+  { label: "Nos Réalisations", href: "#realisations" },
   { label: "Pourquoi Nous Choisir", href: "#pourquoi" },
   { label: "Contact", href: "#contact" },
 ];
@@ -48,6 +51,87 @@ const solutions = [
   },
 ];
 
+const demoWorks = [
+  {
+    title: "Boulangerie Saint-Honoré",
+    category: "Site vitrine + SEO local",
+    result: "+68% appels en 3 mois",
+    image: (
+      <svg viewBox="0 0 320 180" className="h-full w-full">
+        <defs>
+          <linearGradient id="bg-boulangerie" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#fde68a" />
+            <stop offset="100%" stopColor="#f59e0b" />
+          </linearGradient>
+        </defs>
+        <rect width="320" height="180" rx="24" fill="url(#bg-boulangerie)" />
+        <rect x="28" y="36" width="264" height="108" rx="20" fill="#fff7ed" opacity="0.9" />
+        <circle cx="92" cy="90" r="28" fill="#f59e0b" opacity="0.8" />
+        <rect x="140" y="72" width="120" height="12" rx="6" fill="#92400e" opacity="0.6" />
+        <rect x="140" y="94" width="84" height="12" rx="6" fill="#92400e" opacity="0.4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Garage Nova Auto",
+    category: "Refonte + Google Maps",
+    result: "+2.4x demandes de devis",
+    image: (
+      <svg viewBox="0 0 320 180" className="h-full w-full">
+        <defs>
+          <linearGradient id="bg-garage" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#bae6fd" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+        </defs>
+        <rect width="320" height="180" rx="24" fill="url(#bg-garage)" />
+        <rect x="26" y="46" width="268" height="88" rx="18" fill="#f0f9ff" opacity="0.9" />
+        <rect x="56" y="102" width="208" height="12" rx="6" fill="#0284c7" opacity="0.5" />
+        <circle cx="108" cy="112" r="16" fill="#0ea5e9" />
+        <circle cx="212" cy="112" r="16" fill="#0ea5e9" />
+      </svg>
+    ),
+  },
+  {
+    title: "Clinique Dentaire Rivoli",
+    category: "Landing + Ads locales",
+    result: "+41% rendez-vous",
+    image: (
+      <svg viewBox="0 0 320 180" className="h-full w-full">
+        <defs>
+          <linearGradient id="bg-clinic" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#bbf7d0" />
+            <stop offset="100%" stopColor="#22c55e" />
+          </linearGradient>
+        </defs>
+        <rect width="320" height="180" rx="24" fill="url(#bg-clinic)" />
+        <rect x="34" y="40" width="252" height="100" rx="18" fill="#ecfdf5" opacity="0.9" />
+        <rect x="70" y="72" width="180" height="16" rx="8" fill="#16a34a" opacity="0.55" />
+        <rect x="104" y="98" width="112" height="12" rx="6" fill="#16a34a" opacity="0.35" />
+      </svg>
+    ),
+  },
+  {
+    title: "Studio Yoga Nami",
+    category: "Site + réservation en ligne",
+    result: "+120 inscriptions/mois",
+    image: (
+      <svg viewBox="0 0 320 180" className="h-full w-full">
+        <defs>
+          <linearGradient id="bg-yoga" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#ddd6fe" />
+            <stop offset="100%" stopColor="#8b5cf6" />
+          </linearGradient>
+        </defs>
+        <rect width="320" height="180" rx="24" fill="url(#bg-yoga)" />
+        <rect x="34" y="36" width="252" height="108" rx="18" fill="#f5f3ff" opacity="0.9" />
+        <circle cx="160" cy="92" r="26" fill="#7c3aed" opacity="0.6" />
+        <rect x="92" y="118" width="136" height="10" rx="5" fill="#6d28d9" opacity="0.5" />
+      </svg>
+    ),
+  },
+];
+
 const reasons = [
   { label: "Approche personnalisée" },
   { label: "Résultats mesurables" },
@@ -60,9 +144,9 @@ export default function Home() {
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#eff6ff_0%,_#f8fafc_45%,_#ffffff_100%)] text-slate-800">
       <header className="sticky top-0 z-10 border-b border-slate-200/70 bg-white/80 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-          <div className="text-lg font-semibold tracking-tight">
+          <Link href="/" className="text-lg font-semibold tracking-tight">
             Web<span className="text-blue-600">vous</span>
-          </div>
+          </Link>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="hover:text-slate-900">
@@ -173,6 +257,43 @@ export default function Home() {
                 <p className="mt-3 text-sm text-slate-600">{solution.text}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section
+          id="realisations"
+          className="mx-auto w-full max-w-6xl px-6 pb-16"
+        >
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80">
+              Nos Réalisations
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+              Des projets concrets qui font grandir les commerces locaux
+            </h2>
+          </div>
+          <div className="relative mt-10 overflow-hidden">
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/80 to-transparent" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/80 to-transparent" />
+            <div className="flex w-max gap-6 animate-[marquee_22s_linear_infinite]">
+              {[...demoWorks, ...demoWorks].map((work, index) => (
+                <div
+                  key={`${work.title}-${index}`}
+                  className="w-72 rounded-3xl border border-slate-200 bg-white p-6 shadow-lg shadow-slate-100"
+                >
+                  <div className="h-40 w-full overflow-hidden rounded-2xl border border-slate-100 bg-slate-50">
+                    {work.image}
+                  </div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500/80">
+                    {work.category}
+                  </p>
+                  <h3 className="mt-4 text-lg font-semibold text-slate-900">
+                    {work.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-600">{work.result}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
