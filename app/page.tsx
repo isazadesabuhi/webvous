@@ -1,65 +1,246 @@
-import Image from "next/image";
+const navLinks = [
+  { label: "Nos Services", href: "#services" },
+  { label: "Pourquoi Nous Choisir", href: "#pourquoi" },
+  { label: "Contact", href: "#contact" },
+];
+
+const solutions = [
+  {
+    title: "Création de Site Web",
+    text: "Sites modernes et optimisés pour votre entreprise.",
+    icon: (
+      <svg viewBox="0 0 48 48" className="h-12 w-12 text-blue-600">
+        <rect x="6" y="10" width="36" height="24" rx="4" fill="currentColor" opacity="0.15" />
+        <rect x="10" y="14" width="28" height="4" rx="2" fill="currentColor" />
+        <rect x="10" y="22" width="16" height="8" rx="2" fill="currentColor" opacity="0.6" />
+        <rect x="28" y="22" width="10" height="8" rx="2" fill="currentColor" opacity="0.35" />
+      </svg>
+    ),
+  },
+  {
+    title: "Référencement Local",
+    text: "Soyez visible sur Google et Google Maps.",
+    icon: (
+      <svg viewBox="0 0 48 48" className="h-12 w-12 text-blue-600">
+        <path
+          d="M24 6c-7.2 0-13 5.8-13 13 0 9.4 13 23 13 23s13-13.6 13-23c0-7.2-5.8-13-13-13z"
+          fill="currentColor"
+          opacity="0.2"
+        />
+        <circle cx="24" cy="19" r="6" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    title: "Marketing Digital",
+    text: "Attirez plus de clients avec des campagnes efficaces.",
+    icon: (
+      <svg viewBox="0 0 48 48" className="h-12 w-12 text-blue-600">
+        <path
+          d="M10 28l16-10v20L10 28z"
+          fill="currentColor"
+          opacity="0.18"
+        />
+        <path d="M26 18l12-6v24l-12-6V18z" fill="currentColor" />
+        <path d="M10 32h8v4h-8z" fill="currentColor" opacity="0.35" />
+      </svg>
+    ),
+  },
+];
+
+const reasons = [
+  { label: "Approche personnalisée" },
+  { label: "Résultats mesurables" },
+  { label: "Accompagnement simple" },
+  { label: "Transparence totale" },
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#eff6ff_0%,_#f8fafc_45%,_#ffffff_100%)] text-slate-800">
+      <header className="sticky top-0 z-10 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
+          <div className="text-lg font-semibold tracking-tight">
+            Web<span className="text-blue-600">vous</span>
+          </div>
+          <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="hover:text-slate-900">
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <button className="rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 md:hidden">
+            Menu
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <section className="mx-auto w-full max-w-6xl px-6 pb-16 pt-20 text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80">
+            Agence Web Locale
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
+            Nous aidons les commerces locaux à obtenir{" "}
+            <span className="font-[var(--font-display)] text-blue-600">
+              plus de clients
+            </span>{" "}
+            grâce au web.
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-base text-slate-600 sm:text-lg">
+            Création de site web • Référencement local • Marketing digital
+          </p>
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <button className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
+              Réserver un appel gratuit
+            </button>
+            <button className="rounded-full border border-blue-200 bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-300 hover:text-blue-800">
+              Demander un devis
+            </button>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-6xl px-6 pb-12">
+          <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white/80 p-8 text-center shadow-lg shadow-slate-200/40 md:grid-cols-3">
+            <div className="space-y-3">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <svg viewBox="0 0 24 24" className="h-6 w-6">
+                  <path
+                    d="M12 2C7.6 2 4 5.6 4 10c0 5.6 8 12 8 12s8-6.4 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-slate-800">
+                Votre commerce est invisible sur Google ?
+              </p>
+            </div>
+            <div className="space-y-3">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <svg viewBox="0 0 24 24" className="h-6 w-6">
+                  <path
+                    d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm2 3h8v2H6V8zm0 4h6v2H6v-2z"
+                    fill="currentColor"
+                  />
+                  <circle cx="18" cy="15" r="2" fill="currentColor" opacity="0.5" />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-slate-800">
+                Votre site internet est dépassé ou absent ?
+              </p>
+            </div>
+            <div className="space-y-3">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <svg viewBox="0 0 24 24" className="h-6 w-6">
+                  <path
+                    d="M12 3 2 20h20L12 3zm0 6a1 1 0 0 1 1 1v4a1 1 0 0 1-2 0v-4a1 1 0 0 1 1-1zm0 8a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </div>
+              <p className="text-sm font-semibold text-slate-800">
+                Vous perdez des clients face à la concurrence ?
+              </p>
+            </div>
+          </div>
+          <p className="mt-6 text-center text-sm font-semibold text-slate-500">
+            Nous avons la solution.
+          </p>
+        </section>
+
+        <section id="services" className="mx-auto w-full max-w-6xl px-6 py-16">
+          <div className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80">
+              Nos Solutions
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+              Des services pensés pour la visibilité locale
+            </h2>
+          </div>
+          <div className="mt-10 grid gap-8 md:grid-cols-3">
+            {solutions.map((solution) => (
+              <div
+                key={solution.title}
+                className="rounded-3xl border border-slate-200 bg-white p-6 text-center shadow-lg shadow-slate-100 transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50">
+                  {solution.icon}
+                </div>
+                <h3 className="mt-6 text-lg font-semibold text-slate-900">
+                  {solution.title}
+                </h3>
+                <p className="mt-3 text-sm text-slate-600">{solution.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="pourquoi" className="bg-slate-50">
+          <div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
+            <h2 className="text-3xl font-semibold text-slate-900">
+              Pourquoi nous choisir ?
+            </h2>
+            <div className="mt-10 grid gap-6 md:grid-cols-4">
+              {reasons.map((reason) => (
+                <div
+                  key={reason.label}
+                  className="rounded-3xl border border-slate-200 bg-white px-4 py-6 shadow-sm"
+                >
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                    <svg viewBox="0 0 24 24" className="h-6 w-6">
+                      <path
+                        d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm-1 5h2v5h-2V8zm0 7h2v2h-2v-2z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-sm font-semibold text-slate-700">
+                    {reason.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-5xl px-6 py-16 text-center">
+          <div className="rounded-3xl border border-blue-100 bg-blue-50/80 px-6 py-12 shadow-lg shadow-blue-100/40">
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Prêt à développer votre visibilité locale ?
+            </h3>
+            <p className="mt-3 text-sm text-slate-600">
+              Planifions un appel rapide pour analyser votre potentiel.
+            </p>
+            <button className="mt-6 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
+              Planifier un appel gratuit
+            </button>
+          </div>
+        </section>
       </main>
+
+      <footer
+        id="contact"
+        className="border-t border-slate-200 bg-white"
+      >
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+          <div className="space-y-2">
+            <p className="text-base font-semibold text-slate-800">Contactez-nous</p>
+            <div className="flex flex-wrap gap-4 text-sm">
+              <span>contact@webvous.fr</span>
+              <span>01 23 45 67 89</span>
+            </div>
+          </div>
+          <div className="flex gap-6 text-sm font-medium text-slate-500">
+            <a href="#" className="hover:text-slate-800">
+              Mentions légales
+            </a>
+            <a href="#" className="hover:text-slate-800">
+              Politique de confidentialité
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
