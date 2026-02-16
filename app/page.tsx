@@ -144,12 +144,20 @@ export default function Home() {
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#eff6ff_0%,_#f8fafc_45%,_#ffffff_100%)] text-slate-800">
       <header className="sticky top-0 z-10 border-b border-slate-200/70 bg-white/80 backdrop-blur">
         <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-5">
-          <Link href="/" className="text-lg font-semibold tracking-tight">
-            Web<span className="text-blue-600">vous</span>
+          <Link
+            href="/"
+            className="text-lg font-semibold tracking-tight reveal-up"
+            style={{ animationDelay: "60ms" }}
+          >
+            Web <span className="text-blue-600">carré</span>
           </Link>
           <nav className="hidden items-center gap-8 text-sm font-medium text-slate-600 md:flex">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="hover:text-slate-900">
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-slate-900 reveal-up"
+              >
                 {link.label}
               </a>
             ))}
@@ -162,24 +170,39 @@ export default function Home() {
 
       <main>
         <section className="mx-auto w-full max-w-6xl px-6 pb-16 pt-20 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80">
+          <p
+            className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80 tracking-in"
+            style={{ animationDelay: "100ms" }}
+          >
             Agence Web Locale
           </p>
-          <h1 className="mx-auto mt-6 max-w-4xl text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-6xl">
+          <h1
+            className="mx-auto mt-6 max-w-4xl text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-6xl reveal-up"
+            style={{ animationDelay: "220ms" }}
+          >
             Nous aidons les commerces locaux à obtenir{" "}
             <span className="font-[var(--font-display)] text-blue-600">
               plus de clients
             </span>{" "}
             grâce au web.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-slate-600 sm:text-lg">
+          <p
+            className="mx-auto mt-6 max-w-2xl text-base text-slate-600 sm:text-lg reveal-up"
+            style={{ animationDelay: "320ms" }}
+          >
             Création de site web • Référencement local • Marketing digital
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
+            <button
+              className="rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 reveal-up"
+              style={{ animationDelay: "420ms" }}
+            >
               Réserver un appel gratuit
             </button>
-            <button className="rounded-full border border-blue-200 bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-300 hover:text-blue-800">
+            <button
+              className="rounded-full border border-blue-200 bg-white px-6 py-3 text-sm font-semibold text-blue-700 shadow-sm transition hover:border-blue-300 hover:text-blue-800 reveal-up"
+              style={{ animationDelay: "500ms" }}
+            >
               Demander un devis
             </button>
           </div>
@@ -235,10 +258,10 @@ export default function Home() {
 
         <section id="services" className="mx-auto w-full max-w-6xl px-6 py-16">
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80 tracking-in">
               Nos Solutions
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-slate-900">
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900 clip-reveal">
               Des services pensés pour la visibilité locale
             </h2>
           </div>
@@ -265,11 +288,12 @@ export default function Home() {
           className="mx-auto w-full max-w-6xl px-6 pb-16"
         >
           <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500/80 tracking-in">
               Nos Réalisations
             </p>
-            <h2 className="mt-4 text-3xl font-semibold text-slate-900">
-              Des projets concrets qui font grandir les commerces locaux
+            <h2 className="mt-4 text-3xl font-semibold text-slate-900 clip-reveal">
+              Des projets concrets qui font grandir les commerces{" "}
+              <span className="underline-sweep">locaux</span>
             </h2>
           </div>
           <div className="relative mt-10 overflow-hidden">
@@ -299,7 +323,7 @@ export default function Home() {
 
         <section id="pourquoi" className="bg-slate-50">
           <div className="mx-auto w-full max-w-6xl px-6 py-16 text-center">
-            <h2 className="text-3xl font-semibold text-slate-900">
+            <h2 className="text-3xl font-semibold text-slate-900 clip-reveal">
               Pourquoi nous choisir ?
             </h2>
             <div className="mt-10 grid gap-6 md:grid-cols-4">
@@ -327,13 +351,16 @@ export default function Home() {
 
         <section className="mx-auto w-full max-w-5xl px-6 py-16 text-center">
           <div className="rounded-3xl border border-blue-100 bg-blue-50/80 px-6 py-12 shadow-lg shadow-blue-100/40">
-            <h3 className="text-2xl font-semibold text-slate-900">
+            <h3 className="text-2xl font-semibold text-slate-900 clip-reveal">
               Prêt à développer votre visibilité locale ?
             </h3>
-            <p className="mt-3 text-sm text-slate-600">
+            <p className="mt-3 text-sm text-slate-600 reveal-up" style={{ animationDelay: "180ms" }}>
               Planifions un appel rapide pour analyser votre potentiel.
             </p>
-            <button className="mt-6 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700">
+            <button
+              className="mt-6 rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-700 reveal-up"
+              style={{ animationDelay: "280ms" }}
+            >
               Planifier un appel gratuit
             </button>
           </div>
@@ -348,7 +375,7 @@ export default function Home() {
           <div className="space-y-2">
             <p className="text-base font-semibold text-slate-800">Contactez-nous</p>
             <div className="flex flex-wrap gap-4 text-sm">
-              <span>contact@webvous.fr</span>
+              <span>contact@webcarre.fr</span>
               <span>01 23 45 67 89</span>
             </div>
           </div>

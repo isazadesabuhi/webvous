@@ -33,3 +33,81 @@ body {
     transform: translateX(-50%);
   }
 }
+
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tracking-in {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.28em;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.04em;
+  }
+}
+
+@keyframes clip-reveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes underline-sweep {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+@layer utilities {
+  .reveal-up {
+    animation: reveal-up 700ms ease-out both;
+  }
+  .tracking-in {
+    animation: tracking-in 600ms ease-out both;
+  }
+  .clip-reveal {
+    animation: clip-reveal 700ms ease-out both;
+  }
+  .underline-sweep {
+    position: relative;
+  }
+  .underline-sweep::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 100%;
+    transform-origin: left center;
+    transform: scaleX(0);
+    background: currentColor;
+    opacity: 0.6;
+    animation: underline-sweep 600ms ease-out 400ms both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-up,
+    .tracking-in,
+    .clip-reveal,
+    .underline-sweep::after {
+      animation: none !important;
+    }
+  }
+}
