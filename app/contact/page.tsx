@@ -1,10 +1,4 @@
-import Link from "next/link";
-
-const navLinks = [
-  { label: "Expertises", href: "/services" },
-  { label: "Réalisations", href: "/portfolio" },
-  { label: "Blog", href: "#faq" },
-];
+import Image from "next/image";
 
 const socialIcons = ["brand_awareness", "language", "group"];
 
@@ -23,7 +17,7 @@ const faqs = [
       "Absolument. La mise en ligne n'est que le début. Nous proposons des forfaits de maintenance, d'optimisation SEO continue et de stratégie marketing pour assurer la croissance de votre plateforme.",
   },
   {
-    question: "Comment se déroule le paiement ?",
+    question: "Comment se déroule le pa kiement ?",
     answer:
       "Nos conditions standards prévoient un acompte de 40% à la commande, 30% après validation des maquettes graphiques et 30% lors de la livraison finale. Des facilités de paiement peuvent être discutées pour les projets d'envergure.",
   },
@@ -39,36 +33,6 @@ const footerLinks = ["Mentions Légales", "Confidentialité"];
 export default function ContactPage() {
   return (
     <div className="bg-white text-slate-900 antialiased selection:bg-blue-600/10 selection:text-blue-600">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-blue-600 text-white">
-              <span className="material-symbols-outlined text-xl">grid_view</span>
-            </div>
-            <span className="text-xl font-extrabold tracking-tight text-slate-900">
-              WEB<span className="text-blue-600">CARRÉ</span>
-            </span>
-          </Link>
-          <nav className="hidden items-center gap-10 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                className="text-sm font-semibold text-slate-600 transition-colors hover:text-slate-900"
-                href={link.href}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              className="rounded bg-slate-900 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-slate-800"
-              href="#formulaire"
-            >
-              Démarrer un projet
-            </a>
-          </nav>
-        </div>
-      </header>
-
       <main className="mx-auto max-w-7xl px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 items-start gap-20 lg:grid-cols-12">
           <div className="space-y-12 lg:col-span-5">
@@ -119,20 +83,26 @@ export default function ContactPage() {
               <div className="rounded-xl border border-slate-200/60 bg-slate-50 p-6">
                 <div className="mb-4 flex items-center gap-4">
                   <div className="flex -space-x-2">
-                    <img
+                    <Image
                       alt="Client 1"
                       className="size-8 rounded-full border-2 border-white object-cover"
+                      height={32}
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcnHZVrRUO-aWcxQ_MZLeKSEoJuy_b41MTamSuwdmiOcYxD1iUK5v710vfVdbTmuNqL47l-s2wzRNjK9CjZRdkbNJeRIONdvEyFobBvyi-4rTD15_8RybzVd1yFqA-3CVfI4uKBV0o-4dnLFXskNrDGth_RUJJ_kj8vMGxsmtglHDxrLlpLPBP2ZrRxU9Dcf1pfYh2BmW4ulNlffZSrhS0eF8J30nC3h4qblSZg0xJ5_EwTwjnLdqdx8daFxJmeu0pRqnCYHfcONc"
+                      width={32}
                     />
-                    <img
+                    <Image
                       alt="Client 2"
                       className="size-8 rounded-full border-2 border-white object-cover"
+                      height={32}
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBNrttgkjnhsBYPi3A6raBiNcRNOJsZ7oDlREs8WRaEpWTcbjjlwkL2oDcJ1O90nrK-NIbOoZLRt2EaxRckFADtjgMy_80oaKLHLWsOd012pLGPHR0bJklC3F8naTaYZxh-Q-oFgceyfP7knsYJaZfw9YQb55i-qb0bk9pkd3WB8zJRIIihVsd1RpqXLnZLJRhvEQ_ChCAfAhdcDoQpuanEqmk5V9Ce48sssqOICG6gi8EDzYfmP2vQpvkjtkp55mflnw8MzymsDo"
+                      width={32}
                     />
-                    <img
+                    <Image
                       alt="Client 3"
                       className="size-8 rounded-full border-2 border-white object-cover"
+                      height={32}
                       src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0pYiBiVABqeDTiNIlWKOz3kGsTeBWbYwsYI27g2RfHHaBdcnFtpvOr0ePY-r6Y_guxZjf2aNFUsnG3JE7sYnaHFdSKz-L_nZy1qeSStc3UoFdkVlVLD3rVJqr-SSL_Z6rKRYYDph5mYZpgah-UWZ317zoeNcOtLcokU9aKp12QbcbvjpijaHO6CC1BDOuzPa0tJtgFA-_hG2leUTIcBP2tb1vVCT7ft2yn2ycbkBFz8adaXB7pHpDIcpXLRjYxRwxmFstf9ocTbg"
+                      width={32}
                     />
                   </div>
                   <p className="text-xs font-bold uppercase tracking-wide text-slate-600">

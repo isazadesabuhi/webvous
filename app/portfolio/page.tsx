@@ -1,11 +1,4 @@
-import Link from "next/link";
-
-const navLinks = [
-  { label: "Réalisations", href: "#realisations", active: true },
-  { label: "Expertises", href: "/services" },
-  { label: "Méthodologie", href: "/services#process" },
-  { label: "Agence", href: "#agency" },
-];
+import Image from "next/image";
 
 const filters = ["Tous", "Web", "SEO", "Marketing", "E-commerce"];
 
@@ -90,37 +83,6 @@ const legalLinks = ["Mentions Légales", "Confidentialité"];
 export default function PortfolioPage() {
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-white text-slate-900 transition-colors duration-300">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/90 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-blue-600 text-white">
-              <span className="material-symbols-outlined text-xl">grid_view</span>
-            </div>
-            <span className="text-xl font-extrabold tracking-tight text-slate-900">
-              WEB<span className="text-blue-600">CARRÉ</span>
-            </span>
-          </Link>
-          <nav className="hidden items-center gap-10 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                className={`text-sm font-bold transition-colors ${
-                  link.active
-                    ? "border-b-2 border-blue-600 pb-1 text-blue-600"
-                    : "text-slate-600 hover:text-slate-900"
-                }`}
-                href={link.href}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <button className="rounded-full bg-slate-900 px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-slate-800 hover:shadow-lg active:scale-95">
-            Parlez-nous de votre projet
-          </button>
-        </div>
-      </header>
-
       <main className="mx-auto w-full max-w-7xl flex-1 px-6 py-12 md:py-20">
         <section className="mb-16">
           <div className="mb-12 max-w-4xl">
@@ -157,13 +119,15 @@ export default function PortfolioPage() {
           {typedProjects.map((project) => (
             <div
               key={project.title}
-              className={`project-card rounded-3xl ${
+              className={`project-card relative overflow-hidden rounded-3xl ${
                 projectSizeClass[project.size]
               }`}
             >
-              <img
+              <Image
                 alt={project.title}
-                className="h-full w-full object-cover transition-transform duration-1000"
+                className="object-cover transition-transform duration-1000"
+                fill
+                sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                 src={project.image}
               />
               <div className="overlay absolute inset-0 flex flex-col justify-end bg-white/90 p-10 opacity-0 transition-opacity duration-500">

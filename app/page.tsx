@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const trustLogos = [
   { icon: "architecture", label: "STRUCTURA" },
   { icon: "potted_plant", label: "FLORENCE" },
@@ -47,45 +45,6 @@ const footerColumns = [
 export default function Home() {
   return (
     <div className="selection:bg-blue-600/10 selection:text-blue-600">
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-blue-600 text-white">
-              <span className="material-symbols-outlined text-xl">grid_view</span>
-            </div>
-            <span className="text-xl font-extrabold tracking-tight text-slate-900">
-              WEB<span className="text-blue-600">CARRÉ</span>
-            </span>
-          </Link>
-          <nav className="hidden items-center gap-10 md:flex">
-            <a
-              className="text-sm font-semibold text-slate-600 transition-colors hover:text-blue-600"
-              href="#services"
-            >
-              Services
-            </a>
-            <a
-              className="text-sm font-semibold text-slate-600 transition-colors hover:text-blue-600"
-              href="#portfolio"
-            >
-              Portfolio
-            </a>
-            <a
-              className="text-sm font-semibold text-slate-600 transition-colors hover:text-blue-600"
-              href="#contact"
-            >
-              Contact
-            </a>
-          </nav>
-          <a
-            className="rounded-xl bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-600/90"
-            href="#contact"
-          >
-            Contactez-nous
-          </a>
-        </div>
-      </header>
-
       <main>
         <section className="relative overflow-hidden bg-white pb-32 pt-48">
           <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
@@ -104,7 +63,7 @@ export default function Home() {
                 de votre succès.
               </h1>
               <p className="max-w-xl text-xl font-light leading-relaxed text-slate-500">
-                Web carré accompagne les marques ambitieuses dans la création de
+                Webcarre accompagne les marques ambitieuses dans la création de
                 sites web haute performance, le SEO et le marketing digital.
               </p>
               <div className="flex flex-wrap gap-5 pt-4">
@@ -286,7 +245,7 @@ export default function Home() {
                   <span className="material-symbols-outlined text-lg">grid_view</span>
                 </div>
                 <span className="text-xl font-extrabold tracking-tight text-slate-900">
-                  WEB<span className="text-blue-600">CARRÉ</span>
+                  Webcarre
                 </span>
               </div>
               <p className="max-w-sm text-base font-light leading-relaxed text-slate-500">
@@ -331,7 +290,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col justify-between gap-6 border-t border-slate-200 pt-10 text-[10px] font-bold uppercase tracking-widest text-slate-400 md:flex-row">
-            <p>© 2024 Web carré Digital. Basé à Paris, France.</p>
+            <p>© 2024 Webcarre Digital. Basé à Paris, France.</p>
             <div className="flex gap-10">
               <a className="transition-colors hover:text-blue-600" href="#">
                 Mentions Légales
@@ -346,3 +305,4 @@ export default function Home() {
     </div>
   );
 }
+

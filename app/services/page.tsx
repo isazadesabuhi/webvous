@@ -1,12 +1,3 @@
-import Link from "next/link";
-
-const navLinks = [
-  { href: "#services", label: "Nos Services" },
-  { href: "#process", label: "Notre Méthode" },
-  { href: "#realisations", label: "Réalisations" },
-  { href: "#contact", label: "Blog" },
-];
-
 const services = [
   {
     title: "Développement Web",
@@ -87,44 +78,6 @@ const footerLinks = [
 export default function ServicesPage() {
   return (
     <div className="bg-white text-slate-900 antialiased">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-100 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-blue-600 text-white">
-              <span className="material-symbols-outlined text-xl">
-                grid_view
-              </span>
-            </div>
-            <h1 className="text-xl font-extrabold tracking-tight text-slate-900">
-              WEB<span className="text-blue-600">CARRÉ</span>
-            </h1>
-          </Link>
-          <nav className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                className="text-sm font-semibold text-slate-600 transition-colors hover:text-blue-600"
-                href={link.href}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-4">
-            <button className="hidden rounded-xl bg-blue-600 px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-600/90 sm:block">
-              Parlons de votre projet
-            </button>
-            <div className="size-10 overflow-hidden rounded-full border border-slate-200 p-0.5">
-              <img
-                alt="Contact direct"
-                className="h-full w-full rounded-full object-cover"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSNhuLQjF2cZ5NALWgFfRAHs8vIo9-NeyCFfnS4R14MoBYR6Cm7MCMqt1XkVuxcpb0ftyCS6tEhogro70iQTL2e4CrbJI7MlY-MOkfj9RRYqDw2Ch_8StRoHidE0ig9dlCt94A4KGfTsu3FQu25-0CzeUeeeVqlXdmvVRTGfeC4WYP4iyxTRUrjwoR9vr3V_jyytEaAkwyDxhMz9sv8zvR8UG7j01N_WXzPtZDQYzT_i-KMz0Olc1yRbTlRI5Ne5np3wnobAGJjyM"
-              />
-            </div>
-          </div>
-        </div>
-      </header>
-
       <main className="mx-auto max-w-7xl px-6 py-16 lg:py-28">
         <section className="mb-20 max-w-4xl lg:mb-28">
           <span className="mb-8 inline-flex items-center gap-2 rounded-full border border-blue-600/10 bg-indigo-50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-600">
