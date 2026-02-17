@@ -58,13 +58,23 @@ const projects = [
     cta: "DÉCOUVRIR LE PROJET",
     size: "standard",
   },
-];
+] as const;
 
 const projectSizeClass = {
   tall: "card-tall",
   wide: "card-wide",
   standard: "card-standard",
+} as const;
+
+type Project = {
+  title: string;
+  category: string;
+  image: string;
+  cta: string;
+  size: keyof typeof projectSizeClass;
 };
+
+const typedProjects: Project[] = [...projects];
 
 const expertiseLinks = [
   "Création Web",
@@ -144,7 +154,7 @@ export default function PortfolioPage() {
         </section>
 
         <div id="realisations" className="masonry-grid pb-20">
-          {projects.map((project) => (
+          {typedProjects.map((project) => (
             <div
               key={project.title}
               className={`project-card rounded-3xl ${
