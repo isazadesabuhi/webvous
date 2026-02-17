@@ -56,8 +56,10 @@ export default function Navbar() {
         </div>
       </div>
       <div
-        className={`fixed inset-x-0 top-20 z-40 h-[calc(100dvh-5rem)] bg-white/98 px-6 py-10 text-2xl font-semibold text-slate-700 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
-          open ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-x-0 top-20 z-40 h-[calc(100dvh-5rem)] bg-white/98 px-6 py-10 text-2xl font-semibold text-slate-700 shadow-2xl transition-[transform,opacity] duration-300 ease-out md:hidden ${
+          open
+            ? "translate-x-0 opacity-100"
+            : "pointer-events-none translate-x-full opacity-0"
         }`}
         id="primary-menu"
       >
