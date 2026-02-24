@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const socialIcons = ["brand_awareness", "language", "group"];
 
-const serviceOptions = ["Site Vitrine", "E-commerce", "SEO & Marketing"];
+const serviceOptions = ["Création de site", "Référencement", "Identité visuelle","Supports de communication","CRM", "Application mobile", "Réseaux sociaux", "Autre"];
 
 const faqs = [
   {
@@ -138,7 +138,27 @@ export default function ContactPage() {
                     </label>
                     <input
                       className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
-                      placeholder="Ex: Jean Dupont"
+                      placeholder="Ex: Jean"
+                      type="text"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Prénom
+                    </label>
+                    <input
+                      className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
+                      placeholder="Ex:Dupont"
+                      type="text"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Téléphone
+                    </label>
+                    <input
+                      className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
+                      placeholder="Ex: 0x xx xx xx xx"
                       type="text"
                     />
                   </div>
@@ -168,7 +188,7 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
-                <div className="space-y-2">
+                {/* <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     Budget estimé
                   </label>
@@ -179,7 +199,7 @@ export default function ContactPage() {
                     <option>15 000€ - 30 000€</option>
                     <option>30 000€ +</option>
                   </select>
-                </div>
+                </div> */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     Votre projet en quelques mots

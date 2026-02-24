@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
+import logo from "@/public/logo.svg";
+
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -19,7 +22,8 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center gap-6 px-6">
         <a href="/" className="flex items-center gap-3">
           <div className="flex size-10 items-center justify-center rounded-xl bg-blue-600 text-white shadow-sm">
-            <span className="material-symbols-outlined text-xl">grid_view</span>
+            {/* <span className="material-symbols-outlined text-xl">grid_view</span> */}
+            <Image src={logo} alt="WebCarré Logo" width={40} height={40} />
           </div>
           <span className="text-xl font-extrabold tracking-tight text-slate-900">
             WEB<span className="text-blue-600">CARRÉ</span>

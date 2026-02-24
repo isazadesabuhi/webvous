@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const trustLogos = [
   { icon: "architecture", label: "STRUCTURA" },
   { icon: "potted_plant", label: "FLORENCE" },
@@ -46,7 +48,7 @@ export default function Home() {
   return (
     <div className="selection:bg-blue-600/10 selection:text-blue-600">
       <main>
-        <section className="relative overflow-hidden bg-white pb-32 pt-48">
+        <section className="relative overflow-hidden bg-white pb-32 pt-8 sm:pt-18 lg:pt-32">
           <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-12">
             <div className="fade-in-up flex flex-col gap-10 lg:col-span-7">
               <div className="inline-flex w-fit items-center gap-3 rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5">
@@ -67,15 +69,15 @@ export default function Home() {
                 sites web haute performance, le SEO et le marketing digital.
               </p>
               <div className="flex flex-wrap gap-5 pt-4">
-                <button className="flex items-center gap-3 rounded-xl bg-blue-600 px-10 py-5 text-base font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700">
+                <Link href="/contact" className="flex items-center gap-3 rounded-xl bg-blue-600 px-10 py-5 text-base font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700">
                   Commencer un projet
                   <span className="material-symbols-outlined text-lg">
                     arrow_right_alt
                   </span>
-                </button>
-                <button className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-10 py-5 text-base font-bold text-slate-900 transition-all hover:border-blue-600 hover:text-blue-600">
+                </Link>
+                <Link href="/portfolio" className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-10 py-5 text-base font-bold text-slate-900 transition-all hover:border-blue-600 hover:text-blue-600">
                   Notre Portfolio
-                </button>
+                </Link>
               </div>
             </div>
             <div
