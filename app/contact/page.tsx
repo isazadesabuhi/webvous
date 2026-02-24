@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const socialIcons = ["brand_awareness", "language", "group"];
 
@@ -31,6 +34,58 @@ const faqs = [
 const footerLinks = ["Mentions Légales", "Confidentialité"];
 
 export default function ContactPage() {
+  const [fullName, setFullName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [services, setServices] = useState<string[]>([]);
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">(
+    "idle",
+  );
+
+  const handleServiceToggle = (option: string) => {
+    setServices((prev) =>
+      prev.includes(option)
+        ? prev.filter((item) => item !== option)
+        : [...prev, option],
+    );
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("loading");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          firstName,
+          phone,
+          email,
+          services,
+          message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setStatus("success");
+      setFullName("");
+      setFirstName("");
+      setPhone("");
+      setEmail("");
+      setServices([]);
+      setMessage("");
+    } catch (error) {
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="bg-white text-slate-900 antialiased selection:bg-blue-600/10 selection:text-blue-600">
       <main className="mx-auto max-w-7xl px-6 py-16 md:py-24">
@@ -130,7 +185,7 @@ export default function ContactPage() {
               id="formulaire"
               className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:p-10"
             >
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div className="space-y-2">
                     <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
@@ -140,6 +195,9 @@ export default function ContactPage() {
                       className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
                       placeholder="Ex: Jean"
                       type="text"
+                      value={fullName}
+                      onChange={(event) => setFullName(event.target.value)}
+                      required
                     />
                   </div>
                   <div className="space-y-2">
@@ -150,6 +208,9 @@ export default function ContactPage() {
                       className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
                       placeholder="Ex:Dupont"
                       type="text"
+                      value={firstName}
+                      onChange={(event) => setFirstName(event.target.value)}
+                      required
                     />
                   </div>
                   <div className="space-y-2">
@@ -160,6 +221,8 @@ export default function ContactPage() {
                       className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
                       placeholder="Ex: 0x xx xx xx xx"
                       type="text"
+                      value={phone}
+                      onChange={(event) => setPhone(event.target.value)}
                     />
                   </div>
                   <div className="space-y-2">
@@ -170,6 +233,9 @@ export default function ContactPage() {
                       className="form-input-focus w-full rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
                       placeholder="jean@entreprise.fr"
                       type="email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      required
                     />
                   </div>
                 </div>
@@ -180,7 +246,13 @@ export default function ContactPage() {
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                     {serviceOptions.map((option) => (
                       <label key={option} className="cursor-pointer">
-                        <input className="peer hidden" name="service" type="checkbox" />
+                        <input
+                          className="peer hidden"
+                          checked={services.includes(option)}
+                          name="service"
+                          type="checkbox"
+                          onChange={() => handleServiceToggle(option)}
+                        />
                         <div className="rounded border border-slate-200 px-3 py-3 text-center text-xs font-semibold text-slate-500 transition-all peer-checked:border-blue-600 peer-checked:bg-blue-600/5 peer-checked:text-blue-600">
                           {option}
                         </div>
@@ -188,18 +260,6 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </div>
-                {/* <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                    Budget estimé
-                  </label>
-                  <select className="form-input-focus w-full appearance-none rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 transition-all">
-                    <option>Sélectionnez une tranche</option>
-                    <option>2 000€ - 5 000€</option>
-                    <option>5 000€ - 15 000€</option>
-                    <option>15 000€ - 30 000€</option>
-                    <option>30 000€ +</option>
-                  </select>
-                </div> */}
                 <div className="space-y-2">
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
                     Votre projet en quelques mots
@@ -208,17 +268,31 @@ export default function ContactPage() {
                     className="form-input-focus w-full resize-none rounded border border-slate-200 bg-slate-50/30 px-4 py-3.5 text-sm text-slate-900 placeholder:text-slate-400 transition-all"
                     placeholder="Objectifs, délais, contraintes particulières..."
                     rows={4}
+                    value={message}
+                    onChange={(event) => setMessage(event.target.value)}
+                    required
                   />
                 </div>
                 <button
                   className="flex w-full items-center justify-center gap-2 rounded bg-blue-600 py-4 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-all hover:bg-blue-700"
                   type="submit"
+                  disabled={status === "loading"}
                 >
-                  Envoyer ma demande{" "}
+                  {status === "loading" ? "Envoi en cours..." : "Envoyer ma demande"}{" "}
                   <span className="material-symbols-outlined text-base">
                     arrow_forward
                   </span>
                 </button>
+                {status === "success" ? (
+                  <p className="rounded border border-emerald-100 bg-emerald-50 px-4 py-3 text-center text-xs font-semibold text-emerald-600">
+                    Merci ! Votre demande a bien été envoyée.
+                  </p>
+                ) : null}
+                {status === "error" ? (
+                  <p className="rounded border border-rose-100 bg-rose-50 px-4 py-3 text-center text-xs font-semibold text-rose-600">
+                    Une erreur est survenue. Merci de réessayer.
+                  </p>
+                ) : null}
                 <p className="px-8 text-center text-[10px] leading-relaxed text-slate-400">
                   En envoyant ce formulaire, vous acceptez que vos données
                   soient traitées conformément à notre politique de
